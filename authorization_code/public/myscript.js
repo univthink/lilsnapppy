@@ -10,7 +10,7 @@ $("#searchSongs").click(function(){
 
   $.ajax({
     type: "GET",
-    url: "https://api.spotify.com/v1/search?q=" + searchQry + "&type=track,artist&market=us&limit=10&offset=5",
+    url: "https://api.spotify.com/v1/search?q=" + searchQry + "&type=track&market=us&limit=10&offset=5",
     headers: {'Authorization': 'Bearer ' + access_token  },
     dataType: "json",
     data: "formdata",
