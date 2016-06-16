@@ -19,10 +19,18 @@
  var request = require('request'); // "Request" library
  var querystring = require('querystring');
  var cookieParser = require('cookie-parser');
-
+ //Production
  var client_id = '71d18cb9b32c480d951eed41512df8fc'; // Your client id
  var client_secret = '2e89cb3f772345279ae54fa417cc7457'; // Your secret
  var redirect_uri = 'https://lilsnapppy.herokuapp.com/callback/'; // Your redirect uri
+ /*
+
+
+
+
+ var client_id = '23fda62574464d50be2ecfd8540353b5'; // Your client id
+ var client_secret = '44c1395c8390426d8b6b3f938f29af58'; // Your secret
+ var redirect_uri = 'http://localhost:5000/callback/'; // Your redirect uri
 
 
  /**
@@ -53,7 +61,7 @@
    res.cookie(stateKey, state);
 
    // your application requests authorization
-   var scope = 'user-read-private user-read-email';
+   var scope = 'user-read-private playlist-modify-private playlist-modify-public user-read-email';
    res.redirect('https://accounts.spotify.com/authorize?' +
      querystring.stringify({
        response_type: 'code',

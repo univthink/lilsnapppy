@@ -4,9 +4,13 @@
     <title>Snapster</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
-    html, body {width: 100%;}
+    html, body, #body, .body {width: 100% !important;}
     input#filename, .form-control {
     width: 200px;
+}
+div#loggedin {
+    width: 350px !important;
+    margin: auto !important;
 }
 body {
     width: 450px;
@@ -62,7 +66,13 @@ dt {
 button#obtain-new-token {
     width: 346px;
 }
+div#results {
+    width: 340px;
+    margin: auto;
+    padding-top: 15px;
+}
     </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
@@ -82,7 +92,8 @@ button#obtain-new-token {
         <div id="oauth">
         </div>
         <div id="searchBox"><input class="col-xs-3 form-control" name="filename" id="filename" type="text"><button class="btn btn-default" id="searchSongs">Search for a Song</button></div>
-        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+        <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button><br/>
+        <button class="btn btn-default" id="setDefaultPlaylist">Set Playlist to "Snapster"</button>
       </div>
     </div>
     <div class="container">
