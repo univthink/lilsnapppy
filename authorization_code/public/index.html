@@ -4,9 +4,41 @@
     <title>Snapster</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
-    html, body, #body, .body {width: 100% !important;}
-    input#filename, .form-control {
-    width: 200px;
+        @media only screen and (max-width: 500px) {
+   #searchBox, #filename {
+    width: 100% !important;
+    border: 0;
+    background: #ececec;
+    padding: 0 0 0 0;
+    margin: 0;
+    outline: 0;
+    border-radius: 0;
+    height: 166px !important;
+    font-size: -webkit-xxx-large;
+    text-align: center;
+    color: #72ad21;
+    font-weight: bold;
+    font-family: monospace !important;
+}
+}
+        button#obtain-new-token {
+    visibility: hidden;
+}
+    html, body, #body, .body {width: 100% !important; background-color: #443f3f;}
+#searchBox, #filename {
+    width: 100% !important;
+    border: 0;
+    background: #ececec;
+    padding: 0 0 0 0;
+    margin: 0;
+    outline: 0;
+    border-radius: 0;
+    height: 66px !important;
+    font-size: xx-large;
+    text-align: center;
+    color: #72ad21;
+    font-weight: bold;
+    font-family: monospace !important;
 }
 div#loggedin {
     width: 350px !important;
@@ -17,9 +49,9 @@ body {
     margin: auto;
 }
 div#searchBox {
-    width: 380px;
+    width: inherit;
     margin:auto;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 button#searchSongs {
 margin-left: 5px;
@@ -43,16 +75,25 @@ margin-left: 5px;
         width: 500px;
       }
       body {
-    padding: 20px;
+    padding: 0px;
 }
 #search-form, .form-control {
-    margin-bottom: 20px;
+   // margin-bottom: 20px;
 }
 .cover {
     width: 300px;
     height: 300px;
     display: inline-block;
     background-size: cover;
+}
+.media, .media-body, div#oauth, div#user-profile, h1 { height: 0px;}
+div#results {
+    width: 100% !important;
+    color: white;
+    font-weight: bold;
+    padding-top: 15px;
+    background-color: #443f3f;
+    //height: 1000px !important;
 }
 .cover:hover {
     cursor: pointer;
@@ -71,6 +112,10 @@ div#results {
     margin: auto;
     padding-top: 15px;
 }
+button#setDefaultPlaylist {
+    width: 347px;
+    margin-top: 20px;
+}
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -81,9 +126,12 @@ div#results {
   </head>
 
   <body>
-    <div class="container">
+      <div id="searchBox"><input class="col-xs-3 form-control" name="filename" placeholder="Search For a Song or Artist..." id="filename" type="text"></div>
+      <div id="results"></div>
+
+       <div class="container">
       <div id="login">
-        <em><h1>Snapster</h1></em>
+        <h1><em>Snapster</em></h1>
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loggedin">
@@ -91,13 +139,15 @@ div#results {
         </div>
         <div id="oauth">
         </div>
-        <div id="searchBox"><input class="col-xs-3 form-control" name="filename" id="filename" type="text"><button class="btn btn-default" id="searchSongs">Search for a Song</button></div>
         <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button><br/>
-        <button class="btn btn-default" id="setDefaultPlaylist">Set Playlist to "Snapster"</button>
+                <!--<div id="searchBox"><input class="col-xs-3 form-control" name="filename" id="filename" type="text"><button class="btn btn-default" id="searchSongs">Search for a Song</button></div>
+
+          <button class="btn btn-default" id="setDefaultPlaylist">Set Playlist to "Snapster"</button>
+        <button class="btn btn-default" id="test">TEST</button><br/>-->
+
       </div>
     </div>
     <div class="container">
-      <div id="results"></div>
   </div>
 <!--  <script id="results-template" type="text/x-handlebars-template">
       {{#each tracks.items}}
@@ -107,32 +157,7 @@ div#results {
   </script> -->
 
 
-    <script id="user-profile-template" type="text/x-handlebars-template">
-      <h1>{{display_name}}</h1>
-      <div class="media">
-        <div class="pull-left">
-          <img class="media-object" width="150" src="UT.png" />
-          <!--<img class="media-object" width="150" src="{{images.0.url}}" />-->
-
-        </div>
-
-      </div>
-      <div class="media-body">
-        <dl class="dl-horizontal">
-          <!--<dt>Name</dt><br/><dd>{{display_name}}</dd>-->
-          <dt style="display:none;">Id</dt><dd style="color:white;" id="userID">{{id}}</dd>
-          <dt>Email</dt><br/><dd>{{email}}</dd>
-          <!--<dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-          <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>-->
-          <!--<dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd> -->
-          <!--<dt>Country</dt><dd>{{country}}</dd>-->
-        </dl>
-      </div>
-
-
-
-
-    </script>
+    
 
     <script id="oauth-template" type="text/x-handlebars-template">
       <h2>oAuth info</h2>
@@ -143,6 +168,36 @@ div#results {
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+      <script id="user-profile-template" type="text/x-handlebars-template">
+          <div class="media">
+              <div class="pull-left">
+                  <img class="media-object" width="150" src="UT.png" />
+                  <!--<img class="media-object" width="150" src="{{images.0.url}}" />-->
+              </div>
+          </div>
+          <div class="media-body">
+              <dl class="dl-horizontal">
+                  <dt style="display:none;">Id</dt>
+                  <dd style="color:white;" id="userID">{{id}}</dd>
+                  <dt>Name</dt>
+                  <br />
+                  <dd>{{display_name}}</dd>
+                  <dt>Email</dt>
+                  <br />
+                  <dd>{{email}}</dd>
+                  <dt>Spotify URI</dt>
+                  <dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+                  <dt>Link</dt>
+                  <dd><a href="{{href}}">{{href}}</a></dd>
+                  <dt>Profile Image</dt>
+                  <dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+                  <dt>Country</dt>
+                  <dd>{{country}}</dd>
+              </dl>
+          </div>
+
+
+      </script>
     <script>
     var access_token;
       (function() {
@@ -222,9 +277,6 @@ div#results {
 
 
     </script>
-
-  <span id="link"><header id='results'></header></span>
-  <!--<script src="playlists.js"></script>-->
-  <script src="songs.js"></script>
+  <script src="song.js"></script>
   </body>
 </html>
