@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
         @media (device-width: 500px) {
-            html {zoom: 200%;}
+            html, body {zoom: 200%;}
+            #spotify {margin-top: 100px; zoom: 200%;}
    #searchBox, #filename {
     width: 100% !important;
     border: 0;
@@ -133,7 +134,7 @@ button#setDefaultPlaylist {
        <div class="container">
       <div id="login">
         <h1><em>Snapster</em></h1>
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
+        <a href="/login" id="spotify" class="btn btn-primary">Log in with Spotify</a>
       </div>
       <div id="loggedin">
         <div id="user-profile">
