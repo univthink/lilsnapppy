@@ -20,7 +20,8 @@
           //  $("#searchSongs").click(function () {
                     baseURL = "https://api.spotify.com/v1/users/";
                     searchQry = document.getElementById('filename').value;
-                    userID = document.getElementById('userID').innerHTML;
+                userID = "b.univthink";
+                    //document.getElementById('userID').innerHTML;
                 $.ajax({
                     type: "GET",
                     url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
