@@ -75,8 +75,13 @@
                                                         dataType: "json",
                                                         data: "formdata",
                                                         success: function (dataFirst) {
-                                                            console.log(Snapster);
+                                                        console.log(Snapster);
+                                                        $("#results").empty();
+                                                        $("#results").css("text-align", "center");
+                                                        $("#results").append("<img />").attr("src", "check-mark.png");
+                                                        setTimeout(function () {
                                                             location.reload();
+                                                        }, 1000);                                       
                                                         }
                                                     });
                                                 });
@@ -122,16 +127,21 @@
                                                     $(".songLink").eq(i).attr("id", "songLink" + i);
                                                     $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?position=0&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
                                                     $('header#songLink' + i).on("click", function () {
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: $(this).attr('name'),
-                                                            headers: { 'Authorization': 'Bearer ' + access_token },
-                                                            dataType: "json",
-                                                            data: "formdata",
-                                                            success: function (dataFirst) {
-                                                                console.log("playlist id=" + Snapster);
-                                                                console.log("song id=" + myData.tracks.items.id);
+                                                    $.ajax( {
+                                                        type: "POST",
+                                                        url: $(this).attr('name'),
+                                                        headers: { 'Authorization': 'Bearer ' + access_token },
+                                                        dataType: "json",
+                                                        data: "formdata",
+                                                        success: function (dataFirst) {
+                                                            console.log("playlist id=" + Snapster);
+                                                            console.log("song id=" + myData.tracks.items.id);
+                                                            $("#results").empty();
+                                                            $("#results").css("text-align", "center");
+                                                            $("#results").append("<img />").attr("src", "check-mark.png");
+                                                            setTimeout(function () {
                                                                 location.reload();
+                                                            }, 1000);    
                                                             }
                                                         });
                                                     });
