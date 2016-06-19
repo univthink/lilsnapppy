@@ -15,6 +15,49 @@
     var flag;
     var jData;
     var partyPlaylist;
+    $(window).load(function () {
+        baseURL = "https://api.spotify.com/v1/users/";
+        searchQry = document.getElementById('filename').value;
+        userID = "b.univthink";
+        //document.getElementById('userID').innerHTML;
+        $.ajax({
+            type: "GET",
+            url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            dataType: "json",
+            data: "formdata",
+            success: function (data) {
+                for (i = 0; i < data.items.length; i++) {
+                    playlists.push(data.items[i].name);
+                }
+                partyPlaylist = playlists.indexOf("Partify");
+                console.log(partyPlaylist);
+                if (playlists.indexOf("Partify") == -1) {
+                    sendInfo = { "name": "Partify", "public": true, }
+                    $.ajax({
+                        type: "POST",
+                        url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+                        headers: { 'Authorization': 'Bearer ' + access_token },
+                        dataType: "application/json",
+                        data: JSON.stringify(sendInfo),
+                        success: function (dataFirst) {
+                            $.ajax({
+                                type: "GET",
+                                url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
+                                headers: { 'Authorization': 'Bearer ' + access_token },
+                                dataType: "json",
+                                data: "formdata",
+                                success: function (data) {
+                                    Snapster = data.items[i].id;
+                                    $("#results").hide().fadeIn('fast');
+                                    location.reload();
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+        });
     $("#filename").keypress(function (event) {
         if (event.which == 13) {
           //  $("#searchSongs").click(function () {
@@ -159,5 +202,6 @@
          //   });
         
         }
+    });
     });
 });
