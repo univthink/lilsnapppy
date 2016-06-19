@@ -108,7 +108,7 @@
                                             for (i = 0; i < myData.tracks.length; i++) {
                                                 $('#results').append("<header style='float: left;' 'class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "<img style='float: right;' src='plus.png;'></header><br/>");
                                                 $(".songLink").eq(i).attr("id", "songLink" + i);
-                                                $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?position=0&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
+                                                $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
                                                 $('#songLink' + i).on("click", function () {
                                                     //for (i = 0; i < data.items.length; i++) {
                                                     //    $('#songLink' + i).on("click", function () {
@@ -169,7 +169,7 @@
                                                 for (i = 0; i < myData.tracks.items.length; i++) {
                                                     $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
                                                     $(".songLink").eq(i).attr("id", "songLink" + i);
-                                                    $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?position=0&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
+                                                    $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
                                                     $('header#songLink' + i).on("click", function () {
                                                     $.ajax( {
                                                         type: "POST",
