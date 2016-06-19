@@ -78,10 +78,10 @@
                                                         console.log(Snapster);
                                                         $("#results").empty();
                                                         $("#results").css("text-align", "center");
-                                                        $("#results").append("<img />").attr("src", "check-mark.png");
+                                                        $("#results").append($('<img />').attr({ display: "block", src: "check-mark.png", top: "25%" }));
                                                         setTimeout(function () {
                                                             location.reload();
-                                                        }, 1000);                                       
+                                                        }, 1000);                                                
                                                         }
                                                     });
                                                 });
@@ -138,10 +138,10 @@
                                                             console.log("song id=" + myData.tracks.items.id);
                                                             $("#results").empty();
                                                             $("#results").css("text-align", "center");
-                                                            $("#results").append("<img />").attr("src", "check-mark.png");
+                                                            $("#results").append($('<img />').attr({ display: "block", src: "check-mark.png", top: "25%" }));
                                                             setTimeout(function () {
                                                                 location.reload();
-                                                            }, 1000);    
+                                                            }, 1000); 
                                                             }
                                                         });
                                                     });
