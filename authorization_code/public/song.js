@@ -18,8 +18,16 @@
     $(window).load(function () {
         baseURL = "https://api.spotify.com/v1/users/";
         searchQry = document.getElementById('filename').value;
-        userID = "b.univthink";
+        //userID = "b.univthink";
         //document.getElementById('userID').innerHTML;
+        $.ajax({
+            type: "GET",
+            url: "https://api.spotify.com/v1/me/",
+            headers: { 'Authorization': 'Bearer ' + access_token },
+            success: function (data) {
+                userID = data.id;
+            }
+        });
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -94,7 +102,7 @@
                                         dataType: "json",
                                         data: "formdata",
                                         success: function (data) {
-                                            Snapster = data.items[i].id;
+                                            Snapster = data.items[partyPlaylist].id;
                                             $("#results").hide().fadeIn('fast');
                                         }
                                     });
@@ -125,20 +133,18 @@
                                                         $("#results").append($('<img />').attr({ display: "block", src: "check-mark.png", top: "25%" }));
                                                         setTimeout(function () {
                                                             location.reload();
-                                                        }, 1000);                                                
+                                                        }, 1000);
                                                         }
                                                     });
                                                 });
                                             }
                                         }
 
-        
+
                                     });
                                 }
                             });
-                    
-                    
-                
+
                         }
                         else if (playlists.indexOf("Partify") != -1) {
                             console.log(partyPlaylist + "Already Exists");
@@ -185,7 +191,7 @@
                                                             $("#results").append($('<img />').attr({ display: "block", src: "check-mark.png", top: "25%" }));
                                                             setTimeout(function () {
                                                                 location.reload();
-                                                            }, 1000); 
+                                                            }, 1000);
                                                             }
                                                         });
                                                     });
@@ -195,13 +201,13 @@
                                     });
                                 }
                             });
-        
+
                         }
                     }
                 });
-        
+
          //   });
-        
+
         }
     });
     });
