@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     var userID;
     var baseURL;
     var myData;
@@ -16,18 +16,18 @@
     var jData;
     var partyPlaylist;
     $(window).load(function () {
+      $.ajax({
+          type: "GET",
+          url: "https://api.spotify.com/v1/me/",
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          dataType: "json",
+          data: "formdata",
+          success: function (userData) {var userID1 = userData.uri; userID = userID1.split(':')[2];}
+        });
         baseURL = "https://api.spotify.com/v1/users/";
         searchQry = document.getElementById('filename').value;
-        //userID = "b.univthink";
+        userID = "b.univthink";
         //document.getElementById('userID').innerHTML;
-        $.ajax({
-            type: "GET",
-            url: "https://api.spotify.com/v1/me/",
-            headers: { 'Authorization': 'Bearer ' + access_token },
-            success: function (data) {
-                userID = data.id;
-            }
-        });
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -102,7 +102,7 @@
                                         dataType: "json",
                                         data: "formdata",
                                         success: function (data) {
-                                            Snapster = data.items[partyPlaylist].id;
+                                            Snapster = data.items[i].id;
                                             $("#results").hide().fadeIn('fast');
                                         }
                                     });
@@ -144,6 +144,8 @@
                                     });
                                 }
                             });
+
+
 
                         }
                         else if (playlists.indexOf("Partify") != -1) {
