@@ -9,12 +9,12 @@
     position: relative !important;
     min-height: 100% !important;
 }
-     header:nth-child(1) {
+     header:nth-child(0), header:nth-child(1) {
     padding-top: 100px !important;
 }
 header {
-    border-bottom: 3px solid pink;
-    padding-bottom: 55px;
+    border-bottom: 3px solid pink !important;
+    padding-bottom: 55px !important;
 }
             footer, #footer, #footer2 {
                 background-color: #443f3f !important;
@@ -47,12 +47,12 @@ header {
     font-family: monospace !important;
 }
 }
-        header {
-    border-bottom: 1px solid pink;
-    padding-bottom: 20px;
+       header:nth-child(0), header:nth-child(1) {
+    padding-top: 100px !important;
 }
-header:nth-child(1) {
-    padding-top: 2px !important;
+header {
+    border-bottom: 3px solid pink !important;
+    padding-bottom: 55px !important;
 }
            #login, #spotify, #logout {width: 100% !important;height: 125px; font-size: 200%; background-color: #77af28;}
 
