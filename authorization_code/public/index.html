@@ -7,6 +7,15 @@
         @media (max-device-width: 450px) {
             html, body {zoom: 125%; !important;}
             html, body {width: 100vw !important;}
+            input#filename, #results {
+    height: 125px !important;
+    font-size: 250% !important;
+}
+            #login {
+    display: none;
+    width: 100vw !important;
+    margin: auto;
+}
             #spotify {margin-top: 100px !important; zoom: 200% !important; width: 138px !important;}
    #searchBox, #filename {
     width: 100vw !important;
@@ -27,7 +36,7 @@
         button#obtain-new-token {
     visibility: hidden;
 }
-    html, body, #body, .body {width: 100%; background-color: #443f3f;}
+    html, body, #body, .body {width: 100vw; background-color: #443f3f;}
 #searchBox, #filename {
     width: 100vw;
     border: 0;
@@ -48,7 +57,7 @@ div#loggedin {
     margin: auto !important;
 }
 body {
-    width: 450px;
+    width: 100vw;
     margin: auto;
 }
 div#searchBox {
