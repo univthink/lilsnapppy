@@ -16,13 +16,21 @@ header {
     border-bottom: 3px solid pink !important;
     padding-bottom: 55px !important;
 }
-            footer, #footer, #footer2 {
+            footer, #footer {
                 background-color: #443f3f !important;
                 position: fixed !important;
                 left: 0 !important;
                 bottom: 0 !important;
                 height: 100px !important;
                 width: 100vw !important;
+}
+#footer2 {
+    background-color: pink !important;
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    height: 3px !important;
+    width: 100vw !important;
 }
             body {zoom: 125% !important;}
             html, body {width: 100vw !important; height: 100vh !important;}
@@ -75,7 +83,7 @@ header {
     font-weight: bold;
     font-family: monospace !important;
 }
- footer, #footer, #footer2 {
+ footer, #footer {
                 background-color: #443f3f !important;
                 position: fixed !important;
                 left: 0 !important;
@@ -83,6 +91,14 @@ header {
                 height: 100px !important;
                 width: 100vw !important;
             }
+            #footer2 {
+                           background-color: pink !important;
+                           position: fixed !important;
+                           left: 0 !important;
+                           bottom: 0 !important;
+                           height: 3px !important;
+                           width: 100vw !important;
+                       }
 div#loggedin {
     width: 350px !important;
     margin: auto !important;
@@ -173,7 +189,7 @@ button#setDefaultPlaylist {
       <div id="results"></div>
 
        <div class="container">
-      
+
       <div id="loggedin">
         <div id="user-profile">
         </div>
@@ -197,7 +213,7 @@ button#setDefaultPlaylist {
   </script> -->
 
 
-    
+
 
     <script id="oauth-template" type="text/x-handlebars-template">
       <h2>oAuth info</h2>
@@ -218,7 +234,7 @@ button#setDefaultPlaylist {
           <div class="media-body">
               <dl class="dl-horizontal">
                   <dt style="display:none;">Id</dt>
-                  <dd style="color:white;" id="userID">{{id}}</dd>
+                  <dd style="color:white;" id="userID2">{{id}}</dd>
                   <dt>Name</dt>
                   <br />
                   <dd>{{display_name}}</dd>
@@ -243,12 +259,11 @@ button#setDefaultPlaylist {
               <!--<h1><em>Snapster</em></h1>-->
               <a href="/login" id="spotify" class="btn btn-primary">Log in with Spotify</a>
           </div>
-            </footer> 
-      <!--<div id="footer2">
-          <div id="logout">
-              <a href="/logout" id="logout" class="btn btn-primary">Logout</a>
-          </div>
-      </div> -->
+            </footer>
+      <div id="footer2">
+        <script id="user-profile-template" type="text/x-handlebars-template">  <p style="color:white;" id="userID">{{id}}</p></script>
+<script src="song.js"></script>
+      </div>
       <script>
     var access_token;
       (function() {
@@ -303,7 +318,6 @@ button#setDefaultPlaylist {
                   $('#loggedin').show();
                   $('#footer').hide();
                   $('#footer2').show();
-
                 }
             });
           } else {
@@ -334,6 +348,5 @@ button#setDefaultPlaylist {
 
     </script>
 
-  <script src="song.js"></script>
   </body>
 </html>

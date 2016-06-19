@@ -12,22 +12,22 @@ $(document).ready(function () {
     var urlData;
     var jsonData;
     var obj;
-    var flag;
+    var userLink;
+    var userData;
     var jData;
     var partyPlaylist;
     $(window).load(function () {
+      userID = $('#userID2').html();
       $.ajax({
           type: "GET",
           url: "https://api.spotify.com/v1/me/",
           headers: { 'Authorization': 'Bearer ' + access_token },
           dataType: "json",
           data: "formdata",
-          success: function (userData) {var userID1 = userData.uri; userID = userID1.split(':')[2];}
+          success: function (userData) {userLink = "https://lilsnapppy.herokuapp.com/#access_token=" + access_token;}
         });
         baseURL = "https://api.spotify.com/v1/users/";
         searchQry = document.getElementById('filename').value;
-        userID = "b.univthink";
-        //document.getElementById('userID').innerHTML;
         $.ajax({
             type: "GET",
             url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -66,14 +66,14 @@ $(document).ready(function () {
                 }
             }
         });
+        userID = $('#userID2').html();
     $("#filename").keypress(function (event) {
             if (event.which == 13) {
                 $("#results").empty();
           //  $("#searchSongs").click(function () {
                     baseURL = "https://api.spotify.com/v1/users/";
                     searchQry = document.getElementById('filename').value;
-                userID = "b.univthink";
-                    //document.getElementById('userID').innerHTML;
+                    userID = $('#userID2').html();
                 $.ajax({
                     type: "GET",
                     url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -150,7 +150,7 @@ $(document).ready(function () {
                         }
                         else if (playlists.indexOf("Partify") != -1) {
                             console.log(partyPlaylist + "Already Exists");
-                            Snapster = data.items[partyPlaylist].id;
+                            Snapster = data.items[partyPlaylist - 8].id;
                             $("#results").hide().fadeIn('fast');
                             $.ajax({
                                 type: "GET",
@@ -172,7 +172,7 @@ $(document).ready(function () {
                                             if (playlists.indexOf("Partify") != -1) {
                                                 for (i = 0; i < data.items.length; i++) {
                                                     console.log("Already Exists");
-                                                    Snapster = data.items[partyPlaylist].id;
+                                                    Snapster = data.items[partyPlaylist -8].id;
                                                 }
                                                 for (i = 0; i < myData.tracks.items.length; i++) {
                                                     $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
