@@ -71,6 +71,7 @@ $(document).ready(function () {
     $("#filename").keypress(function (event) {
             if (event.which == 13) {
                 $("#results").empty();
+                playlists = [];
           //  $("#searchSongs").click(function () {
                     baseURL = "https://api.spotify.com/v1/users/";
                     searchQry = document.getElementById('filename').value;
