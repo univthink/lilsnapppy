@@ -24,8 +24,8 @@ header {
                 position: fixed !important;
                 left: 0 !important;
                 bottom: 0 !important;
-                height: 100px !important;
-                width: 100vw !important;
+                height: 200px !important;
+                width: 100% !important;
 }
 #footer2 {
     background-color: pink !important;
@@ -33,7 +33,7 @@ header {
     left: 0 !important;
     bottom: 0 !important;
     height: 3px !important;
-    width: 100vw !important;
+    width: 100% !important;
 }
             body {zoom: 125% !important;}
             input#filename {
@@ -44,9 +44,10 @@ header {
 height: 0px !important;
 font-size: 250% !important;
 }
-   #spotify, #logout {width: 100%;height: 125px; font-size: 400%; background-color: #77af28;}
+#login, #spotify, #logout {width: 100% !important; border: none !important; height: 200px; margin-top: 25px; font-size: 250%; background-color: #77af28;}
+
    #searchBox, #filename {
-    width: 100vw !important;
+    width: 100% !important;
     border: 0;
     background: #ececec;
     padding: 0 0 0 0;
@@ -60,8 +61,8 @@ font-size: 250% !important;
     font-weight: bold;
     font-family: monospace !important;
 }
-body {width: 100vw; height: 0px !important;}
-    html {width: 100vw; background-color: #007bbc; height: 200% !important;}
+body {width: 100%; height: 0px !important;}
+    html {width: 100%; background-color: #443f3f; height: 100vh !important;}
 }
 header:nth-child(0), header:nth-child(1) {
     padding-top: 10px;
@@ -70,15 +71,16 @@ header {
     border-bottom: 3px solid pink !important;
     padding-bottom: 20px;
 }
-           #login, #spotify, #logout {width: 100% !important;height: 125px; font-size: 200%; background-color: #77af28;}
+*{overflow: visible;}
+#login, #spotify, #logout {width: 100% !important; border: none !important; height: 50px; font-size: 140%; background-color: #77af28;}
 
         button#obtain-new-token {
     visibility: hidden;
 }
-body {width: 100vw; height: 0px !important;}
-    html {width: 100vw; background-color: #007bbc; height: 200% !important;}
+body {width: 100%; height: 0px !important;}
+    html {width: 100%; background-color: #443f3f; height: 100vh !important;}
 #searchBox, #filename {
-    width: 100vw;
+    width: 100%;
     border: 0;
     background: #ececec;
     padding: 0 0 0 0;
@@ -97,8 +99,8 @@ body {width: 100vw; height: 0px !important;}
                 position: fixed !important;
                 left: 0 !important;
                 bottom: 0 !important;
-                height: 100px !important;
-                width: 100vw !important;
+                height: 50px !important;
+                width: 100% !important;
             }
             #footer2 {
                            background-color: pink !important;
@@ -106,7 +108,7 @@ body {width: 100vw; height: 0px !important;}
                            left: 0 !important;
                            bottom: 0 !important;
                            height: 3px !important;
-                           width: 100vw !important;
+                           width: 100% !important;
                        }
 div#loggedin {
     width: 350px !important;
@@ -114,7 +116,7 @@ div#loggedin {
     height: 0px !important
 }
 body {
-    width: 100vw;
+    width: 100%;
     margin: auto;
 }
 div#searchBox {
