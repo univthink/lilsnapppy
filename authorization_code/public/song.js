@@ -66,6 +66,7 @@ $(document).ready(function () {
                 }
             }
         });
+        playlists = [];
         userID = $('#userID2').html();
     $("#filename").keypress(function (event) {
             if (event.which == 13) {
@@ -86,6 +87,7 @@ $(document).ready(function () {
                         }
                         partyPlaylist = playlists.indexOf("Partify");
                         console.log(partyPlaylist);
+                        playlists = [];
                         if (playlists.indexOf("Partify") == -1) {
                             sendInfo = { "name": "Partify", "public": true, }
                             $.ajax({
@@ -102,8 +104,9 @@ $(document).ready(function () {
                                         dataType: "json",
                                         data: "formdata",
                                         success: function (data) {
-                                            Snapster = data.items[i].id;
+                                            Snapster = data.items[partyPlaylist].id;
                                             $("#results").hide().fadeIn('fast');
+                                            playlists = [];
                                         }
                                     });
                                     $.ajax({
@@ -149,8 +152,8 @@ $(document).ready(function () {
 
                         }
                         else if (playlists.indexOf("Partify") != -1) {
-                            console.log(partyPlaylist + "Already Exists");
-                            Snapster = data.items[partyPlaylist].id;
+                            console.log(playlists + partyPlaylist + "Already Exists");
+                            Snapster = data.items[partyPlaylist - 8].id;
                             $("#results").hide().fadeIn('fast');
                             $.ajax({
                                 type: "GET",
@@ -199,6 +202,7 @@ $(document).ready(function () {
                                                     });
                                                 }
                                             }
+                                            partyPlaylist = [];
                                         }
                                     });
                                 }
