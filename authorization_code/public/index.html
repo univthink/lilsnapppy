@@ -33,7 +33,6 @@ header {
     width: 100vw !important;
 }
             body {zoom: 125% !important;}
-            html, body {width: 100vw !important; height: 100vh !important;}
             input#filename, #results {
     height: 125px !important;
     font-size: 250% !important;
@@ -67,7 +66,7 @@ header {
         button#obtain-new-token {
     visibility: hidden;
 }
-    html, body, #body, .body {width: 100vw; background-color: #443f3f;}
+    html, body, #body, .body {width: 100vw; background-color: #443f3f; background: url('turtle.jpg') no-repeat center center fixed; background-size: cover; height: 100vh !important;}
 #searchBox, #filename {
     width: 100vw;
     border: 0;
@@ -120,6 +119,7 @@ margin-left: 5px;
 }
     div#oauth {display: none;}
     #login {
+    border-top: 5px solid #443f3f;
     display: none;
     width: 150px;
     margin: auto;
@@ -150,7 +150,7 @@ div#results {
     width: 100% !important;
     color: white;
     font-weight: bold;
-    padding-top: 15px;
+    padding-top: 5px;
     background-color: #443f3f;
     //height: 1000px !important;
 }
@@ -169,7 +169,7 @@ button#obtain-new-token {
 div#results {
     width: 340px;
     margin: auto;
-    padding-top: 15px;
+    padding-top: 5px;
 }
 button#setDefaultPlaylist {
     width: 347px;
@@ -318,6 +318,7 @@ button#setDefaultPlaylist {
                   $('#loggedin').show();
                   $('#footer').hide();
                   $('#footer2').show();
+                  $('#searchBox').show();
                 }
             });
           } else {
@@ -326,6 +327,7 @@ button#setDefaultPlaylist {
               $('#loggedin').hide();
               $('#footer2').hide();
               $('#footer').show();
+              $('#searchBox').hide();
           }
 
           document.getElementById('obtain-new-token').addEventListener('click', function() {
