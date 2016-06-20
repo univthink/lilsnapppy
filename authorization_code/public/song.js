@@ -88,7 +88,7 @@ $(document).ready(function () {
                         partyPlaylist = playlists.indexOf("Partify");
                         console.log(partyPlaylist);
                         playlists = [];
-                        if (playlists.indexOf("Partify") == -1) {
+                        if (playlists.indexOf("Partify") != -1) {
                             sendInfo = { "name": "Partify", "public": true, }
                             $.ajax({
                                 type: "POST",
@@ -151,9 +151,9 @@ $(document).ready(function () {
 
 
                         }
-                        else if (playlists.indexOf("Partify") != -1) {
+                        else if (playlists.indexOf("Partify") == -1) {
                             console.log(playlists + partyPlaylist + "Already Exists");
-                            Snapster = data.items[partyPlaylist - 8].id;
+                            Snapster = data.items[partyPlaylist].id;
                             $("#results").hide().fadeIn('fast');
                             $.ajax({
                                 type: "GET",
