@@ -150,7 +150,7 @@ $(document).ready(function () {
                         }
                         else if (playlists.indexOf("Partify") != -1) {
                             console.log(partyPlaylist + "Already Exists");
-                            Snapster = data.items[partyPlaylist - 8].id;
+                            Snapster = data.items[partyPlaylist].id;
                             $("#results").hide().fadeIn('fast');
                             $.ajax({
                                 type: "GET",
@@ -172,7 +172,7 @@ $(document).ready(function () {
                                             if (playlists.indexOf("Partify") != -1) {
                                                 for (i = 0; i < data.items.length; i++) {
                                                     console.log("Already Exists");
-                                                    Snapster = data.items[partyPlaylist -8].id;
+                                                    Snapster = data.items[partyPlaylist].id;
                                                 }
                                                 for (i = 0; i < myData.tracks.items.length; i++) {
                                                     $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
