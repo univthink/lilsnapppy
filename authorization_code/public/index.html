@@ -367,6 +367,17 @@ button#setDefaultPlaylist {
 
 
     </script>
+<iframe style="pointer-events: all !important;" src="https://embed.spotify.com/user/b.univthink/playlist/5mgazsXWu8efZvCId67JiJ" width="300" height="380" id="iframe" frameborder="0" allowtransparency="true"></iframe>
+   <script>
+       $(document).ready(function () {
+           $("#button").click(function (event) {
 
+               var i = $("#iframe").contents().find("html").html();
+
+               console.log(i);
+
+           });
+       });
+   </script>
   </body>
 </html>
