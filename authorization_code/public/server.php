@@ -1,0 +1,1 @@
+<?php    $url = 'http://www.transfermarkt.com/zlatan-ibrahimovic/detaillierteleistungsdaten/spieler/3455';    $htm = file_get_contents($url);    echo $htm;?>

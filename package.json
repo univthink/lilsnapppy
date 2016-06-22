@@ -12,6 +12,9 @@
     "morgan": "^1.7.0",
     "querystring": "~0.2.0",
     "request": "~2.34.0",
-    "spotify-web-api-node": "^2.3.0"
+    "spotify-web-api-node": "^2.3.0",
+    "node-media-controller": "~0.0.6",
+    "rollup": "~0.32.0",
+    "requirejs": "~2.2.0"
   }
 }
