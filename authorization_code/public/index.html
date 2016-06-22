@@ -205,7 +205,7 @@ button#setDefaultPlaylist {
   </head>
 
   <body>
-
+      <center><header style="height: 73px; font-size: 200%; font-weight: bold; color: white" id="infoHeader"></header></center>
       <div id="searchBox"><input class="col-xs-3 form-control" name="filename" placeholder="Song or Artist..." id="filename" type="text"></div>
       <div id="results"></div>
 
@@ -346,6 +346,8 @@ button#setDefaultPlaylist {
                   $('#footer').hide();
                   $('#footer2').show();
                   $('#searchBox').show();
+                  $('#infoHeader').show();
+
                 }
             });
           } else {
@@ -355,6 +357,7 @@ button#setDefaultPlaylist {
               $('#footer2').hide();
               $('#footer').show();
               $('#searchBox').hide();
+              $('#infoHeader').hide();
           }
 
           document.getElementById('obtain-new-token').addEventListener('click', function() {

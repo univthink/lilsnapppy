@@ -3,7 +3,8 @@ $(document).ready(function () {
     var userID;
     var Snapster;
     var playlists = [];
-    $(window).load(function () {
+    $("#filename").focus(function (event) {
+        $('#infoHeader').append("Upcoming Songs");
             localStorage['userID'] = $('#userID2').html();
             userID = localStorage['userID'];
             $.ajax({
