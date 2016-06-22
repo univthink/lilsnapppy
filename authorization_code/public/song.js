@@ -48,8 +48,8 @@ $(document).ready(function () {
                                 }
                                 localStorage['Snapster'] = data.items[partyPlaylist].id;
                                 Snapster = localStorage['Snapster'];
+                                $("#results").empty();
                                 for (i = 0; i < myData.tracks.items.length; i++) {
-                                    $("#results").empty();
                                     $('#results').append("<header class='songLink'>" + myData.tracks.items[i].artists[0].name + "<br />" + myData.tracks.items[i].name + "</header><br/>");
                                     $(".songLink").eq(i).attr("id", "songLink" + i);
                                     $(".songLink").eq(i).attr("name", baseURL + userID + "/playlists/" + Snapster + "/tracks?&uris=spotify%3Atrack%3A" + myData.tracks.items[i].id);
