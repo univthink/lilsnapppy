@@ -205,9 +205,9 @@ button#setDefaultPlaylist {
   </head>
 
   <body>
-      <center><header style="height: 73px; font-size: 200% !important; font-weight: bold; color: white" id="infoHeader"></header></center>
+      <center><h2 style="margin-bottom: 0px; height: 55px !important; font-size: 200% !important; font-weight: bold; color: white" id="infoHeader"></h2></center>
       <div id="searchBox"><input class="col-xs-3 form-control" name="filename" placeholder="Song or Artist..." id="filename" type="text"></div>
-      <div id="results"></div>
+     <center><div id="results"></div></center>
 
        <div class="container">
 
@@ -285,9 +285,7 @@ button#setDefaultPlaylist {
             </footer>
       <div id="footer2">
         <script id="user-profile-template" type="text/x-handlebars-template">  <p style="color:white;" id="userID">{{id}}</p></script>
-          <script src="song.js"></script>
-          <script src="checkForPlaylist.js"></script>
-          <script src="upcomingSongs.js"></script>
+
           <!--<script src="songs.js"></script>-->
 
       </div>
@@ -379,6 +377,11 @@ button#setDefaultPlaylist {
 
 
     </script>
+      <script src="checkForPlaylist.js"></script>
+      <script src="upcomingSongs.js"></script>
+      <script src="song.js"></script>
+      <script src="voting.js"></script>
+      
 
   </body>
 </html>

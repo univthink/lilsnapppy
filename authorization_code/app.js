@@ -21,7 +21,7 @@ var mediaController = require('node-media-controller');
  var request = require('request'); // "Request" library
  var querystring = require('querystring');
  var cookieParser = require('cookie-parser');
-var ii = 1;
+var ii = 2;
 if (ii == 1) {
  var client_id = '71d18cb9b32c480d951eed41512df8fc'; // Your client id
  var client_secret = '2e89cb3f772345279ae54fa417cc7457'; // Your secret
