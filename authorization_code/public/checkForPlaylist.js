@@ -1,10 +1,19 @@
 $(document).ready(function () {
     var playlists = [];
     var userID;
-    $(window).load(function () {
+    $.ajax({
+        type: "GET",
+        url: "https://api.spotify.com/v1/me",
+        headers: { 'Authorization': 'Bearer ' + access_token },
+        dataType: "json",
+        data: "formdata",
+        success: function (userData) {
+            localStorage['userID'] = userData.id;
+            userID = localStorage['userID'];
+        }
+    });
         $("#filename").keypress(function (event) {
-            if (event.which == 13) {
-                userID = $('#userID2').html();
+            if (event.which === 13) {
                  $.ajax({
                     type: "GET",
                     url: "https://api.spotify.com/v1/users/" + userID + "/playlists",
@@ -37,15 +46,15 @@ $(document).ready(function () {
                                             alert(playlists);
                                             localStorage['Snapster'] = data.items[partyPlaylist].id;
                                             Snapster = localStorage['Snapster'];
-                                            location.reload();
                                         }
                                     });
                                 }
                             });
                         }
+
                     }
                 });
             }
         });
-    });
+   // });
 });

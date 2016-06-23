@@ -39,7 +39,7 @@
     <Content Include="authorization_code\public\turtle.jpg" />
     <Compile Include="authorization_code\public\accesstoken.js" />
     <Compile Include="authorization_code\public\bundle.js" />
-    <Compile Include="authorization_code\public\client.bundle.js" />
+    <Compile Include="authorization_code\public\song2.js" />
     <Compile Include="authorization_code\public\playlists.js" />
     <Compile Include="authorization_code\public\song.js" />
     <Compile Include="authorization_code\public\upcomingSongs.js" />
